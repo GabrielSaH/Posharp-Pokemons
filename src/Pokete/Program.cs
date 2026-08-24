@@ -1,6 +1,5 @@
 using Pokete.Core;
 using Pokete.Data;
-using Pokete.Menu;
 using Pokete.Models;
 
 namespace Pokete;
@@ -31,7 +30,7 @@ public static class Program
         if (SaveManager.SaveExists()) options.Insert(0, "Continue");
         options.Add("Quit");
 
-        string selected = options[MenuSystem.Choose("Pokete -- Grey Edition (C# port)", options)];
+        string selected = options[MainMenu.Choose("Pokete -- Grey Edition", options)];
         Player? player = selected switch
         {
             "Continue" => SaveManager.LoadPlayer() ?? PlayerFactory.CreateNew(),
